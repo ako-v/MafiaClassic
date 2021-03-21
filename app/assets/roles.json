@@ -1,0 +1,135 @@
+{
+  "civilian": {
+    "alignment": "civilianParty",
+    "quantity": 4,
+    "icon": "civilian",
+    "name": "civilian",
+    "removable": false
+  },
+  "doctor": {
+    "alignment": "civilianParty",
+    "selected": true,
+    "icon": "doctor",
+    "name": "doctor",
+    "removable": true
+  },
+  "sniper": {
+    "alignment": "civilianParty",
+    "selected": true,
+    "icon": "sniper",
+    "name": "sniper",
+    "removable": true
+  },
+  "bulletproof": {
+    "alignment": "civilianParty",
+    "selected": false,
+    "icon": "bulletproof",
+    "name": "bulletproof",
+    "removable": true
+  },
+  "detective": {
+    "alignment": "civilianParty",
+    "selected": false,
+    "icon": "detective",
+    "name": "detective",
+    "removable": true
+  },
+  "sheriff": {
+    "alignment": "civilianParty",
+    "selected": false,
+    "icon": "sheriff",
+    "name": "sheriff",
+    "removable": true
+  },
+  "mayor": {
+    "alignment": "civilianParty",
+    "selected": false,
+    "icon": "mayor",
+    "name": "mayor",
+    "removable": true
+  },
+  "mason": {
+    "alignment": "civilianParty",
+    "selected": false,
+    "icon": "mason",
+    "name": "mason",
+    "removable": true
+  },
+  "judge": {
+    "alignment": "civilianParty",
+    "selected": false,
+    "icon": "judge",
+    "name": "judge",
+    "removable": true
+  },
+  "mafia": {
+    "alignment": "mafiaParty",
+    "quantity": 2,
+    "icon": "mafia",
+    "name": "mafia",
+    "removable": false
+  },
+  "godfather": {
+    "alignment": "mafiaParty",
+    "selected": true,
+    "icon": "godfather",
+    "name": "godfather",
+    "removable": true
+  },
+  "strongman": {
+    "alignment": "mafiaParty",
+    "selected": false,
+    "icon": "strongman",
+    "name": "strongman",
+    "removable": true
+  },
+  "lawyer": {
+    "alignment": "mafiaParty",
+    "selected": false,
+    "icon": "lawyer",
+    "name": "lawyer",
+    "removable": true
+  },
+  "bomber": {
+    "alignment": "mafiaParty",
+    "selected": false,
+    "icon": "bomber",
+    "name": "bomber",
+    "removable": true
+  },
+  "surgeon": {
+    "alignment": "mafiaParty",
+    "selected": false,
+    "icon": "surgeon",
+    "name": "surgeon",
+    "removable": true
+  },
+  "lover": {
+    "alignment": "mafiaParty",
+    "selected": false,
+    "icon": "lover",
+    "name": "lover",
+    "removable": true
+  },
+  "yakuza": {
+    "alignment": "mafiaParty",
+    "selected": false,
+    "icon": "yakuza",
+    "name": "yakuza",
+    "removable": true
+  },
+  "killer": {
+    "alignment": "thirdParty",
+    "selected": false,
+    "icon": "killer",
+    "name": "killer",
+    "removable": true
+  },
+  "fool": {
+    "alignment": "thirdParty",
+    "selected": false,
+    "icon": "fool",
+    "name": "fool",
+    "removable": true
+  }
+}
