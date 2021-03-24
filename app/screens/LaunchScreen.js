@@ -1,27 +1,34 @@
 import {useNavigation} from '@react-navigation/native';
 import React from 'react';
-import {View, StyleSheet, Pressable} from 'react-native';
+import {useTranslation} from 'react-i18next';
+import {View, StyleSheet, Pressable, Text} from 'react-native';
 import AppText from '../components/AppText';
 import Screen from '../components/Screen';
 import colors from '../config/colors';
 
-export default function LaunchScreen(props) {
+export default function LaunchScreen({createNavigate}) {
+  const {t} = useTranslation();
   const navigation = useNavigation();
 
   const createNewGame = () => {
-    navigation.navigate('Civilian Party');
+    navigation.navigate(createNavigate);
   };
 
   return (
     <Screen style={styles.container}>
       <View style={styles.buttonContainer}>
-        <Pressable style={styles.button} android_ripple={{color: colors.secondary}} onPress={createNewGame}>
-          <AppText style={styles.text}>New Game</AppText>
+        <Pressable
+          style={styles.button}
+          android_ripple={{color: colors.secondary}}
+          onPress={createNewGame}>
+          <AppText style={styles.text}> {t('newGame')}</AppText>
         </Pressable>
       </View>
       <View style={styles.buttonContainer}>
-        <Pressable style={styles.button} android_ripple={{color: colors.secondary}}>
-          <AppText style={styles.text}>How To Play</AppText>
+        <Pressable
+          style={styles.button}
+          android_ripple={{color: colors.secondary}}>
+          <AppText style={styles.text}>{t('howToPlay')}</AppText>
         </Pressable>
       </View>
     </Screen>
@@ -34,6 +41,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
+    backgroundColor: colors.mediumLight,
+    width: 150,
     padding: 10,
     alignItems: 'center',
   },
@@ -44,6 +53,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    fontFamily: 'RobotoSlab-SemiBold',
+    fontFamily: 'RobotoSlab-Regular',
   },
 });

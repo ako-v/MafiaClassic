@@ -1,14 +1,21 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {StyleSheet, Pressable} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '../config/colors';
 import AppText from './AppText';
+import {I18nManager} from 'react-native';
 
 export default function HeaderNext({onPress}) {
+  const {t} = useTranslation();
   return (
     <Pressable style={styles.container} onPress={onPress}>
-      <AppText style={styles.text}>Next</AppText>
-      <Icon name="chevron-right" size={35} color={colors.dark} />
+      <AppText style={styles.text}>{t('next')}</AppText>
+      <Icon
+        name={I18nManager.isRTL ? 'chevron-left' : 'chevron-right'}
+        size={35}
+        color={colors.dark}
+      />
     </Pressable>
   );
 }
@@ -23,6 +30,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 19,
-    fontFamily: 'RobotoSlab-Medium',
+    fontFamily: 'RobotoSlab-SemiBold',
   },
 });

@@ -9,17 +9,37 @@ import NumberInput from './NumberInput';
 import Icon from './CustomIcons';
 import RightActionDelete from './RightActionDelete';
 import capitalize from '../utils/capitalize';
+import {useTranslation} from 'react-i18next';
 
 export default function CharactersListItem({item, onChange, onDelete}) {
+  const {t} = useTranslation('roles');
   return (
-    <Swipeable renderRightActions={() => <RightActionDelete onPress={() => onDelete(item)} />}>
+    <Swipeable
+      renderRightActions={() => (
+        <RightActionDelete onPress={() => onDelete(item)} />
+      )}>
       <View style={styles.container}>
-        {item.icon && <Icon name={item.icon} size={35} color={colors.dark} style={styles.icon} />}
-        <AppText style={styles.name}>{capitalize(item.name)}</AppText>
+        {item.icon && (
+          <Icon
+            name={item.icon}
+            size={35}
+            color={colors.dark}
+            style={styles.icon}
+          />
+        )}
+        <AppText style={styles.name}>{capitalize(t(item.name))}</AppText>
         {item.quantity != undefined ? (
-          <NumberInput quantity={item.quantity} onquantityChange={(newQuantity) => onChange(item, newQuantity)} />
+          <NumberInput
+            quantity={item.quantity}
+            onquantityChange={newQuantity => onChange(item, newQuantity)}
+          />
         ) : (
-          <CheckBox onValueChange={() => onChange(item)} value={item.selected} tintColors={{true: colors.dark, false: colors.dark}} style={styles.checkbox} />
+          <CheckBox
+            onValueChange={() => onChange(item)}
+            value={item.selected}
+            tintColors={{true: colors.dark, false: colors.dark}}
+            style={styles.checkbox}
+          />
         )}
       </View>
     </Swipeable>

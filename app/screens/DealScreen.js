@@ -12,16 +12,23 @@ import colors from '../config/colors';
 import {useContext} from 'react/cjs/react.development';
 import StateContext from '../StateContext';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useTranslation} from 'react-i18next';
 
 export default function DealScreen() {
+  const {t} = useTranslation('deal');
   const appState = useContext(StateContext);
   const navigation = useNavigation();
   const [shuffledCharacters, setShuffledCharacters] = useState(null);
-  const [roleText, setRoleText] = useState('Please tap and hold to view your role');
+  const [roleText, setRoleText] = useState(t('tapToView'));
   const [roleIndex, setRoleIndex] = useState(0);
   const [seenStatus, setSeenStatus] = useState(false);
-  const [nextText, setNextText] = useState('Next');
+  const [nextText, setNextText] = useState(t('next'));
   const [isAnyRoleSelected, setIsAnyRoleSelected] = useState(false);
+
+  useEffect(() => {
+    setRoleText(t('tapToView'));
+    setNextText(t('next'));
+  }, []);
 
   useEffect(() => {
     if (appState.roles) {
@@ -31,7 +38,7 @@ export default function DealScreen() {
         setIsAnyRoleSelected(true);
       } else {
         setIsAnyRoleSelected(false);
-        setRoleText('There is no role selected\r\nPlease go back and select roles');
+        setRoleText(t('noRoleSelected'));
         setSeenStatus(true);
       }
     }
@@ -39,23 +46,27 @@ export default function DealScreen() {
 
   const handleShowRole = () => {
     if (isAnyRoleSelected) {
-      setRoleText('You role is ' + capitalize(shuffledCharacters[roleIndex].name));
+      setRoleText(
+        t('yourRole') +
+          capitalize(t(`roles:${shuffledCharacters[roleIndex].name}`)) +
+          t('roleIs')
+      );
       setSeenStatus(true);
     }
   };
 
   const handleHideRole = () => {
     if (isAnyRoleSelected) {
-      setRoleText('Tap to view your role again\r\nTap next to go to the next player');
+      setRoleText(t('tapToViewAgain'));
     }
   };
 
   const handleNext = () => {
     if (isAnyRoleSelected && roleIndex < shuffledCharacters.length - 1) {
       setRoleIndex(roleIndex + 1);
-      setRoleText('Please tap and hold to view your role');
+      setRoleText(t('tapToView'));
       setSeenStatus(false);
-      if (roleIndex == shuffledCharacters.length - 2) setNextText('Done');
+      if (roleIndex == shuffledCharacters.length - 2) setNextText(t('done'));
     } else {
       navigation.reset({
         index: 0,
@@ -72,12 +83,21 @@ export default function DealScreen() {
     <Screen style={styles.container}>
       <>
         {isAnyRoleSelected && (
-          <>
-            <AppText style={styles.text}>{`${roleIndex + 1} of ${shuffledCharacters.length} characters`}</AppText>
-            <AppText>{seenStatus ? 'You saw your role' : 'Unseen'}</AppText>
-          </>
+          <AppText style={styles.text}>{`${
+            roleIndex +
+            1 +
+            ' ' +
+            t('of') +
+            ' ' +
+            shuffledCharacters.length +
+            ' ' +
+            t('characters')
+          }`}</AppText>
         )}
-        <Pressable style={styles.roleArea} onTouchStart={handleShowRole} onTouchEnd={handleHideRole}>
+        <Pressable
+          style={styles.roleArea}
+          onTouchStart={handleShowRole}
+          onTouchEnd={handleHideRole}>
           {isAnyRoleSelected && (
             <Icon
               style={styles.eye}
@@ -89,7 +109,10 @@ export default function DealScreen() {
           <AppText style={styles.roletext}>{roleText}</AppText>
         </Pressable>
         <Pressable
-          style={[styles.button, !seenStatus && {backgroundColor: colors.medium}]}
+          style={[
+            styles.button,
+            !seenStatus && {backgroundColor: colors.medium},
+          ]}
           onPress={handleNext}
           disabled={!seenStatus}>
           <AppText>{nextText}</AppText>

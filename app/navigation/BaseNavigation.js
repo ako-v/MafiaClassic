@@ -1,6 +1,9 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator, CardStyleInterpolators} from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  CardStyleInterpolators,
+} from '@react-navigation/stack';
 
 import CharactersScreen from '../screens/CharactersScreen';
 import HeaderNext from '../components/HeaderNext';
@@ -8,16 +11,15 @@ import colors from '../config/colors';
 import DealScreen from '../screens/DealScreen';
 import LaunchScreen from '../screens/LaunchScreen';
 import HeaderDots from '../components/HeaderDots';
+import {useTranslation} from 'react-i18next';
+import {useEffect} from 'react/cjs/react.development';
+import {useState} from 'react';
 
 const Stack = createStackNavigator();
 
 export default function BaseNavigation() {
-  //options fot navigation and style of header of Parties screens
-  const headerOptionsParties = navigation => {
-    return screenName => ({
-      headerRight: () => <HeaderNext onPress={() => navigation.push(screenName)} />,
-    }); /*add button inside header for navigation*/
-  };
+  const {t} = useTranslation('title');
+  const [homeTitle, setHomeTitle] = useState('');
 
   //general header and transition config
   const screenOptions = {
@@ -35,19 +37,47 @@ export default function BaseNavigation() {
       <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
         <Stack.Screen
           name="Home"
-          options={{headerTitle: 'Welcome', headerRight: () => <HeaderDots />}}
-          component={LaunchScreen}
-        />
-        <Stack.Screen name="Civilian Party" options={({navigation}) => headerOptionsParties(navigation)('Mafia Party')}>
+          options={{
+            headerTitle: t('Home'),
+            headerRight: () => <HeaderDots />,
+          }}>
+          {() => <LaunchScreen createNavigate="CivilianParty" />}
+        </Stack.Screen>
+        <Stack.Screen
+          name="CivilianParty"
+          options={({navigation}) => ({
+            headerTitle: t('CivilianParty'),
+            headerRight: () => (
+              <HeaderNext onPress={() => navigation.push('MafiaParty')} />
+            ),
+          })}>
           {() => <CharactersScreen party="civilianParty" />}
         </Stack.Screen>
-        <Stack.Screen name="Mafia Party" options={({navigation}) => headerOptionsParties(navigation)('Third Party')}>
+        <Stack.Screen
+          name="MafiaParty"
+          options={({navigation}) => ({
+            headerTitle: t('MafiaParty'),
+            headerRight: () => (
+              <HeaderNext onPress={() => navigation.push('ThirdParty')} />
+            ),
+          })}>
           {() => <CharactersScreen party="mafiaParty" />}
         </Stack.Screen>
-        <Stack.Screen name="Third Party" options={({navigation}) => headerOptionsParties(navigation)('Deal Screen')}>
+        <Stack.Screen
+          name="ThirdParty"
+          options={({navigation}) => ({
+            headerTitle: t('ThirdParty'),
+            headerRight: () => (
+              <HeaderNext onPress={() => navigation.push('DealScreen')} />
+            ),
+          })}>
           {() => <CharactersScreen party="thirdParty" />}
         </Stack.Screen>
-        <Stack.Screen name="Deal Screen" options={{headerTitle: 'Veiw Your Role'}} component={DealScreen} />
+        <Stack.Screen
+          name="DealScreen"
+          options={{headerTitle: t('DealScreen')}}
+          component={DealScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

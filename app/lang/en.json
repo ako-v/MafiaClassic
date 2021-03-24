@@ -1,0 +1,46 @@
+{
+  "common": {
+    "newGame": "New Game",
+    "howToPlay": "How To Play",
+    "next": "Next"
+  },
+  "deal": {
+    "tapToView": "Please tap and hold to view your role",
+    "next": "Next",
+    "noRoleSelected": " There is no role selected\r\nPlease go back and select roles",
+    "yourRole": "You role is: ",
+    "roleIs": "",
+    "tapToViewAgain": "Tap to view your role again\r\nTap next to go to the next player",
+    "done": "Done",
+    "of": "of",
+    "characters": "characters"
+  },
+  "title": {
+    "Home": "Welcome",
+    "CivilianParty": "Civilian Party",
+    "MafiaParty": "Mafia Party",
+    "ThirdParty": "Third Party",
+    "DealScreen": "Veiw Your Role"
+  },
+  "roles": {
+    "civilian": "civilian",
+    "doctor": "doctor",
+    "sniper": "sniper",
+    "bulletproof": "bulletproof",
+    "detective": "detective",
+    "sheriff": "sheriff",
+    "mayor": "mayor",
+    "mason": "mason",
+    "judge": "judge",
+    "mafia": "mafia",
+    "godfather": "godfather",
+    "strongman": "strongman",
+    "lawyer": "lawyer",
+    "bomber": "bomber",
+    "surgeon": "surgeon",
+    "lover": "lover",
+    "yakuza": "yakuza",
+    "killer": "killer",
+    "fool": "fool"
+  }
+}
