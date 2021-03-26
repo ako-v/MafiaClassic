@@ -1,4 +1,4 @@
-package com.mafiaclassic;
+package com.akovium.mafiaclassic;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

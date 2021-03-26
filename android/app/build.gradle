@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.mafiaclassic"
+        applicationId "com.akovium.mafiaclassic"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
