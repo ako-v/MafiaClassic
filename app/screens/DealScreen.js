@@ -38,6 +38,7 @@ export default function DealScreen() {
       } else {
         setIsAnyRoleSelected(false);
         setRoleText(t('noRoleSelected'));
+        setNextText(t('done'));
         setSeenStatus(true);
       }
     }
