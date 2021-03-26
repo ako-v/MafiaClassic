@@ -2,7 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import colors from '../config/colors';
 
-export default function HeaderMenuSeparator(props) {
+export default function Separator(props) {
   return <View style={styles.container} />;
 }
 

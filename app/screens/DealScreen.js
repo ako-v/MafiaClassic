@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {StyleSheet, Pressable} from 'react-native';
-import {useIsFocused, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 import AppText from '../components/AppText';
 import Screen from '../components/Screen';
@@ -88,7 +88,7 @@ export default function DealScreen() {
               style={styles.eye}
               name={seenStatus ? 'eye' : 'eye-off'}
               size={250}
-              color={seenStatus ? colors.medium : colors.mediumLight}
+              color={seenStatus ? colors.secondary : colors.mediumLight}
             />
           )}
           <AppText style={styles.roletext}>{roleText}</AppText>
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     top: '0%',
+    opacity: 0.5,
   },
   roleArea: {
     flex: 1,

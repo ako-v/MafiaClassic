@@ -12,7 +12,7 @@ i18n
   .init({
     fallbackLng: config.fallback,
     supportedLngs: ['en', 'fa'],
-    debug: true,
+    debug: false,
     ns: config.namespaces,
     defaultNS: config.defaultNamespace,
     react: {

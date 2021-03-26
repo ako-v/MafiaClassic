@@ -11,7 +11,6 @@ import cache from './app/utils/cache';
 import BaseNavigation from './app/navigation/BaseNavigation';
 import useRoleManager from './app/utils/useRoleManager';
 import './app/services/i18n';
-import Fallback from './app/components/Fallback';
 import RNRestart from 'react-native-restart';
 
 export default function App(props) {
@@ -53,13 +52,7 @@ export default function App(props) {
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>
-        {
-          ready ? (
-            <BaseNavigation />
-          ) : (
-            <Fallback />
-          ) /*Force not render until i18n is ready, cannot use suspence because makes entire app suspended*/
-        }
+        {ready && <BaseNavigation /> /*Force not render until i18n is ready, cannot use suspence because makes entire app suspended*/}
       </DispatchContext.Provider>
     </StateContext.Provider>
   );

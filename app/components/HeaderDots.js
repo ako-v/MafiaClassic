@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     height: '100%',
-    padding: 2,
+    marginRight: 10,
   },
   backDrop: {
     flex: 1,

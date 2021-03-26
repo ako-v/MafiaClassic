@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {useTranslation} from 'react-i18next';
-import {View, StyleSheet, Pressable, Modal} from 'react-native';
+import {StyleSheet, Pressable, Modal} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import colors from '../config/colors';
 import AppText from './AppText';
 import ListItem from './ListItem';
-import ListSeparator from './ListSeparator';
+import Separator from './Separator';
 
 export default function AppPicker({icon, list, onSelect, selected, title}) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -34,15 +34,16 @@ export default function AppPicker({icon, list, onSelect, selected, title}) {
           data={list}
           keyExtractor={item => item}
           renderItem={({item, index}) => (
-            <AppText
+            <ListItem
+              style={styles.list}
+              title={item}
               onPress={() => {
                 onSelect(index);
                 toggleModal();
-              }}>
-              {item}
-            </AppText>
+              }}
+            />
           )}
-          ItemSeparatorComponent={ListSeparator}
+          ItemSeparatorComponent={Separator}
         />
       </Modal>
     </>
@@ -54,6 +55,7 @@ const styles = StyleSheet.create({
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.secondary,
   },
   container: {
     width: '100%',
@@ -73,5 +75,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'RobotoSlab-SemiBold',
     flex: 1,
+  },
+  list: {
+    backgroundColor: colors.light,
+    paddingVertical: 10,
+    fontFamily: 'RobotoSlab-Medium',
+    fontSize: 20,
   },
 });

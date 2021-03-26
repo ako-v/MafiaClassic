@@ -6,7 +6,7 @@ import AppText from './AppText';
 import AppTextInput from './AppTextInput';
 
 import CharactersListItem from './CharactersListItem';
-import ListSeparator from './ListSeparator';
+import Separator from './Separator';
 import StateContext from '../StateContext';
 import DispatchContext from '../DispatchContext';
 import getRoleArray from '../utils/getRoleArray';
@@ -53,7 +53,7 @@ export default function CharacterList({party}) {
         style={styles.list}
         data={roles}
         keyExtractor={item => item.name}
-        ItemSeparatorComponent={ListSeparator}
+        ItemSeparatorComponent={Separator}
         renderItem={({item}) => (
           <CharactersListItem
             item={item}

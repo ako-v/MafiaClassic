@@ -19,7 +19,7 @@
     "characters": "شخصیت"
   },
   "title": {
-    "Home": "خوش آمدید",
+    "Home": "مافیا کلاسیک",
     "CivilianParty": "گروه شهروند",
     "MafiaParty": "گروه مافیا",
     "ThirdParty": "گروه مستقل",
@@ -35,7 +35,7 @@
     "sheriff": "کلانتر",
     "mayor": "شهردار",
     "mason": "فراماسون",
-    "judge": "فاضی",
+    "judge": "قاضی",
     "mafia": "مافیا",
     "godfather": "رئیس مافیا",
     "strongman": "مرد قوی",
