@@ -1,18 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const key = 'MafiaCharacters';
+const prefix = 'MafiaClassic_';
 
-const store = async value => {
+const store = async (key, value) => {
   try {
-    await AsyncStorage.setItem(key, JSON.stringify(value));
+    await AsyncStorage.setItem(prefix + key, JSON.stringify(value));
   } catch (error) {
     console.log('Storing Roles error:', error);
   }
 };
 
-const get = async () => {
+const get = async key => {
   try {
-    const value = await AsyncStorage.getItem(key);
+    const value = await AsyncStorage.getItem(prefix + key);
     if (!value) return null;
     return JSON.parse(value);
   } catch (error) {

@@ -3,4 +3,5 @@ module.exports = {
   jsxBracketSameLine: true,
   singleQuote: true,
   arrowParens: 'avoid',
+  printWidth: 140,
 };

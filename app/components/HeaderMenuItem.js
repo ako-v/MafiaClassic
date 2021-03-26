@@ -5,7 +5,7 @@ import AppText from './AppText';
 export default function HeaderMenuItem({text, onPress}) {
   return (
     <Pressable onPress={onPress} style={styles.container}>
-      <AppText>{text}</AppText>
+      <AppText style={styles.text}>{text}</AppText>
     </Pressable>
   );
 }
@@ -13,5 +13,9 @@ export default function HeaderMenuItem({text, onPress}) {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 5,
+  },
+  text: {
+    fontFamily: 'RobotoSlab-Regular',
+    fontSize: 19,
   },
 });

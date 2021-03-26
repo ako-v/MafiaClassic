@@ -7,11 +7,12 @@ import translationLoader from './translation-loader';
 
 i18n
   .use(initReactI18next)
-  .use(languageDetector)
   .use(translationLoader)
+  .use(languageDetector)
   .init({
-    debug: false,
     fallbackLng: config.fallback,
+    supportedLngs: ['en', 'fa'],
+    debug: true,
     ns: config.namespaces,
     defaultNS: config.defaultNamespace,
     react: {

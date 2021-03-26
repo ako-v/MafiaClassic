@@ -2,7 +2,10 @@
   "common": {
     "newGame": "New Game",
     "howToPlay": "How To Play",
-    "next": "Next"
+    "next": "Next",
+    "settings": "Settings",
+    "reset": "Reset",
+    "language": "Language"
   },
   "deal": {
     "tapToView": "Please tap and hold to view your role",
@@ -20,7 +23,8 @@
     "CivilianParty": "Civilian Party",
     "MafiaParty": "Mafia Party",
     "ThirdParty": "Third Party",
-    "DealScreen": "Veiw Your Role"
+    "DealScreen": "Veiw Your Role",
+    "settings": "Settings"
   },
   "roles": {
     "civilian": "civilian",
@@ -42,5 +46,9 @@
     "yakuza": "yakuza",
     "killer": "killer",
     "fool": "fool"
+  },
+  "languages": {
+    "fa": "Farsi",
+    "en": "English"
   }
 }

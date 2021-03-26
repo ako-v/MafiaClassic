@@ -1,25 +1,20 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {
-  createStackNavigator,
-  CardStyleInterpolators,
-} from '@react-navigation/stack';
+import {createStackNavigator, CardStyleInterpolators} from '@react-navigation/stack';
 
 import CharactersScreen from '../screens/CharactersScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 import HeaderNext from '../components/HeaderNext';
 import colors from '../config/colors';
 import DealScreen from '../screens/DealScreen';
 import LaunchScreen from '../screens/LaunchScreen';
 import HeaderDots from '../components/HeaderDots';
 import {useTranslation} from 'react-i18next';
-import {useEffect} from 'react/cjs/react.development';
-import {useState} from 'react';
 
 const Stack = createStackNavigator();
 
 export default function BaseNavigation() {
   const {t} = useTranslation('title');
-  const [homeTitle, setHomeTitle] = useState('');
 
   //general header and transition config
   const screenOptions = {
@@ -47,9 +42,7 @@ export default function BaseNavigation() {
           name="CivilianParty"
           options={({navigation}) => ({
             headerTitle: t('CivilianParty'),
-            headerRight: () => (
-              <HeaderNext onPress={() => navigation.push('MafiaParty')} />
-            ),
+            headerRight: () => <HeaderNext onPress={() => navigation.push('MafiaParty')} />,
           })}>
           {() => <CharactersScreen party="civilianParty" />}
         </Stack.Screen>
@@ -57,9 +50,7 @@ export default function BaseNavigation() {
           name="MafiaParty"
           options={({navigation}) => ({
             headerTitle: t('MafiaParty'),
-            headerRight: () => (
-              <HeaderNext onPress={() => navigation.push('ThirdParty')} />
-            ),
+            headerRight: () => <HeaderNext onPress={() => navigation.push('ThirdParty')} />,
           })}>
           {() => <CharactersScreen party="mafiaParty" />}
         </Stack.Screen>
@@ -67,17 +58,14 @@ export default function BaseNavigation() {
           name="ThirdParty"
           options={({navigation}) => ({
             headerTitle: t('ThirdParty'),
-            headerRight: () => (
-              <HeaderNext onPress={() => navigation.push('DealScreen')} />
-            ),
+            headerRight: () => <HeaderNext onPress={() => navigation.push('DealScreen')} />,
           })}>
           {() => <CharactersScreen party="thirdParty" />}
         </Stack.Screen>
-        <Stack.Screen
-          name="DealScreen"
-          options={{headerTitle: t('DealScreen')}}
-          component={DealScreen}
-        />
+        <Stack.Screen name="DealScreen" options={{headerTitle: t('DealScreen')}} component={DealScreen} />
+        <Stack.Screen name="Settings" options={{headerTitle: t('settings')}}>
+          {() => <SettingsScreen />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   );

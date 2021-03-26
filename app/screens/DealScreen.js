@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {StyleSheet, Pressable} from 'react-native';
 import {useIsFocused, useNavigation} from '@react-navigation/native';
 
@@ -9,7 +9,6 @@ import getSelectedCharacters from '../utils/getSelectedCharacters';
 import shuffle from '../utils/shuffle';
 import capitalize from '../utils/capitalize';
 import colors from '../config/colors';
-import {useContext} from 'react/cjs/react.development';
 import StateContext from '../StateContext';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useTranslation} from 'react-i18next';
@@ -46,11 +45,7 @@ export default function DealScreen() {
 
   const handleShowRole = () => {
     if (isAnyRoleSelected) {
-      setRoleText(
-        t('yourRole') +
-          capitalize(t(`roles:${shuffledCharacters[roleIndex].name}`)) +
-          t('roleIs')
-      );
+      setRoleText(t('yourRole') + capitalize(t(`roles:${shuffledCharacters[roleIndex].name}`)) + t('roleIs'));
       setSeenStatus(true);
     }
   };
@@ -80,24 +75,14 @@ export default function DealScreen() {
   };
 
   return (
-    <Screen style={styles.container}>
+    <Screen style={styles.screen}>
       <>
         {isAnyRoleSelected && (
           <AppText style={styles.text}>{`${
-            roleIndex +
-            1 +
-            ' ' +
-            t('of') +
-            ' ' +
-            shuffledCharacters.length +
-            ' ' +
-            t('characters')
+            roleIndex + 1 + ' ' + t('of') + ' ' + shuffledCharacters.length + ' ' + t('characters')
           }`}</AppText>
         )}
-        <Pressable
-          style={styles.roleArea}
-          onTouchStart={handleShowRole}
-          onTouchEnd={handleHideRole}>
+        <Pressable style={styles.roleArea} onTouchStart={handleShowRole} onTouchEnd={handleHideRole}>
           {isAnyRoleSelected && (
             <Icon
               style={styles.eye}
@@ -108,13 +93,7 @@ export default function DealScreen() {
           )}
           <AppText style={styles.roletext}>{roleText}</AppText>
         </Pressable>
-        <Pressable
-          style={[
-            styles.button,
-            !seenStatus && {backgroundColor: colors.medium},
-          ]}
-          onPress={handleNext}
-          disabled={!seenStatus}>
+        <Pressable style={[styles.button, !seenStatus && {backgroundColor: colors.medium}]} onPress={handleNext} disabled={!seenStatus}>
           <AppText>{nextText}</AppText>
         </Pressable>
       </>
@@ -132,7 +111,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.secondary,
   },
-  container: {
+  screen: {
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -1,36 +1,39 @@
 import React, {useState, useContext} from 'react';
-import {
-  StyleSheet,
-  Pressable,
-  Modal,
-  View,
-  TouchableWithoutFeedback,
-  FlatList,
-} from 'react-native';
+import {StyleSheet, Pressable, Modal, View, TouchableWithoutFeedback, FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import colors from '../config/colors';
 import HeaderMenuItem from './HeaderMenuItem';
-import HeaderMenuSeparator from './HeaderMenuSeparator';
+import Separator from './Separator';
 import DispatchContext from '../DispatchContext';
 import cache from '../utils/cache';
+import {useTranslation} from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
 
 export default function HeaderDots() {
+  const navigation = useNavigation();
+  const {t} = useTranslation();
   const appDispatch = useContext(DispatchContext);
   const [modalVisible, setModalVisible] = useState(false);
 
-  const setVisibility = () => {
+  const toggleModal = () => {
     setModalVisible(!modalVisible);
   };
 
   const menus = [
-    {text: 'Setting', onPress: () => {}},
     {
-      text: 'Reset',
+      text: 'settings',
+      onPress: () => {
+        navigation.navigate('Settings');
+        toggleModal();
+      },
+    },
+    {
+      text: 'reset',
       onPress: async () => {
         await cache.clearAll();
         appDispatch({type: 'initialize'});
-        setVisibility();
+        toggleModal();
       },
     },
   ];
@@ -42,18 +45,14 @@ export default function HeaderDots() {
       </Pressable>
 
       <Modal visible={modalVisible} animationType="fade" transparent={true}>
-        <TouchableWithoutFeedback
-          style={styles.backDrop}
-          onPress={setVisibility}>
+        <TouchableWithoutFeedback style={styles.backDrop} onPress={toggleModal}>
           <View style={{flex: 1}}>
             <View style={styles.modalView}>
               <FlatList
                 data={menus}
                 keyExtractor={(item, index) => index.toString()}
-                renderItem={({item}) => (
-                  <HeaderMenuItem text={item.text} onPress={item.onPress} />
-                )}
-                ItemSeparatorComponent={HeaderMenuSeparator}
+                renderItem={({item}) => <HeaderMenuItem text={t(item.text)} onPress={item.onPress} />}
+                ItemSeparatorComponent={Separator}
               />
             </View>
           </View>

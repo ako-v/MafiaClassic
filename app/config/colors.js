@@ -4,7 +4,7 @@ export default {
   secondary: '#38B2FF',
   black: '#000',
   white: '#fff',
-  dark: '#2b2a29',
+  dark: '#4b4849',
   medium: '#6e6969',
   mediumLight: '#e4e2e1',
   light: '#f4f2f1',

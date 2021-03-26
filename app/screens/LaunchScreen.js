@@ -42,11 +42,12 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: colors.mediumLight,
-    width: 150,
+    width: '100%',
     padding: 10,
     alignItems: 'center',
   },
   buttonContainer: {
+    width: '50%',
     borderRadius: 5,
     overflow: 'hidden',
     marginBottom: 5,
