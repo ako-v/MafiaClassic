@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {I18nManager} from 'react-native';
+import RNBootSplash from 'react-native-bootsplash';
 //Context
 import StateContext from './app/StateContext';
 import DispatchContext from './app/DispatchContext';
@@ -43,7 +44,8 @@ export default function App(props) {
     if (cachedRoles != '') {
       dispatch({type: 'initialize', roles: cachedRoles});
     }
-    setIsLoaded(true);
+
+    RNBootSplash.hide({fade: true});
   }, [cachedRoles]);
 
   useEffect(() => {

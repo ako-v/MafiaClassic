@@ -1,4 +1,6 @@
 rootProject.name = 'MafiaClassic'
+include ':react-native-bootsplash'
+project(':react-native-bootsplash').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-bootsplash/android')
 include ':react-native-restart'
 project(':react-native-restart').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-restart/android')
 include ':react-native-safe-area-context'
