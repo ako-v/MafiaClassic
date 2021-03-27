@@ -20,12 +20,12 @@ const get = async key => {
   }
 };
 
-const clearAll = async () => {
-  await AsyncStorage.clear();
+const remove = async key => {
+  await AsyncStorage.removeItem(prefix + key);
 };
 
 export default {
   store,
   get,
-  clearAll,
+  remove,
 };

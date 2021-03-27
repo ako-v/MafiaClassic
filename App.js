@@ -43,6 +43,7 @@ export default function App(props) {
     if (cachedRoles != '') {
       dispatch({type: 'initialize', roles: cachedRoles});
     }
+    setIsLoaded(true);
   }, [cachedRoles]);
 
   useEffect(() => {

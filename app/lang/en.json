@@ -24,7 +24,8 @@
     "MafiaParty": "Mafia Party",
     "ThirdParty": "Third Party",
     "DealScreen": "Veiw Your Role",
-    "settings": "Settings"
+    "settings": "Settings",
+    "splash": "Mafia City"
   },
   "roles": {
     "civilian": "civilian",

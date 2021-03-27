@@ -31,7 +31,7 @@ export default function HeaderDots() {
     {
       text: 'reset',
       onPress: async () => {
-        await cache.clearAll();
+        await cache.remove('roles');
         appDispatch({type: 'initialize'});
         toggleModal();
       },
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     height: '100%',
-    marginRight: 10,
+    marginRight: 15,
   },
   backDrop: {
     flex: 1,
