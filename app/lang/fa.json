@@ -5,7 +5,12 @@
     "next": "مرحله بعد",
     "settings": "تنظیمات",
     "reset": "بازنشانی",
-    "language": "زبان"
+    "language": "زبان",
+    "enterRoleName": "نام نقش را وارد کنید",
+    "unremovableRole": "این نقش را نمی‌توانید پاک کنید.",
+    "cancel": "لغو",
+    "add": "افزودن",
+    "name": "نام"
   },
   "deal": {
     "tapToView": "برای دیدن نقش خود روی صفحه بزنید و نگه دارید",
@@ -38,7 +43,7 @@
     "mason": "فراماسون",
     "judge": "قاضی",
     "mafia": "مافیا",
-    "godfather": "رئیس مافیا",
+    "godfather": "پدرخوانده",
     "strongman": "مرد قوی",
     "lawyer": "وکیل",
     "bomber": "بمب انداز",

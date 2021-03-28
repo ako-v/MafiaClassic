@@ -17,6 +17,7 @@ export default function DealScreen() {
   const {t} = useTranslation('deal');
   const appState = useContext(StateContext);
   const navigation = useNavigation();
+  //states
   const [shuffledCharacters, setShuffledCharacters] = useState(null);
   const [roleText, setRoleText] = useState(t('tapToView'));
   const [roleIndex, setRoleIndex] = useState(0);

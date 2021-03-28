@@ -1,48 +1,63 @@
 import React, {useState, useContext} from 'react';
 import {View, StyleSheet, FlatList, Modal, Pressable, ToastAndroid, TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {useTranslation} from 'react-i18next';
+
 import colors from '../config/colors';
 import AppText from './AppText';
 import AppTextInput from './AppTextInput';
-
 import CharactersListItem from './CharactersListItem';
 import Separator from './Separator';
 import StateContext from '../StateContext';
 import DispatchContext from '../DispatchContext';
 import getRoleArray from '../utils/getRoleArray';
+import {useEffect} from 'react/cjs/react.development';
 
 export default function CharacterList({party}) {
   const appState = useContext(StateContext);
   const appDispatch = useContext(DispatchContext);
+  const {t} = useTranslation();
+  //states
   const [modalVisible, setModalVisible] = useState(false); //modal state
-  const [name, setName] = useState(); //name of the new character in case of adding one
-  const roles = getRoleArray(appState.roles, party); //probably should be inside use effect
+  const [name, setName] = useState(''); //name of the new character in case of adding one
+  const [roles, setRoles] = useState(getRoleArray(appState.roles, party));
+
+  //make sure that roles initialized correctly
+  useEffect(() => {
+    setRoles(getRoleArray(appState.roles, party)); //Array of this specific party. probably should be inside use effect.
+  }, [appState.roles, party]);
 
   //handle addition of new characters
   function handleAdd() {
-    const newRole = {
-      [name]: {
-        name: name,
-        icon: roles[0].icon,
-        alignment: roles[0].alignment,
-        selected: false,
-        removable: true,
-      },
-    };
-    appDispatch({type: 'add', role: newRole});
-    setModalVisible(!modalVisible);
+    if (name && name !== '') {
+      const newRole = {
+        [name]: {
+          name: name,
+          icon: roles[0].icon,
+          alignment: roles[0].alignment,
+          selected: false,
+          removable: true,
+        },
+      };
+      appDispatch({type: 'add', role: newRole});
+      setModalVisible(!modalVisible);
+    } else {
+      ToastAndroid.showWithGravity(t('enterRoleName'), ToastAndroid.LONG, ToastAndroid.TOP);
+    }
   }
 
   //handle removing of a character
   function handleDelete(role) {
     if (role.removable) appDispatch({type: 'remove', role: role});
-    else ToastAndroid.showWithGravity('This character is not removable', ToastAndroid.LONG, ToastAndroid.TOP);
+    else ToastAndroid.showWithGravity(t('unremovableRole'), ToastAndroid.LONG, ToastAndroid.TOP);
   }
 
+  //handle change in selection of a role
   const onSelectionChange = item => {
     appDispatch({type: 'changeSelectionState', role: item});
   };
 
+  //handle change in quantity of a role
   const onquantityChange = (item, newQuantity) => {
     appDispatch({type: 'changeQuantity', role: item, quantity: newQuantity});
   };
@@ -76,14 +91,14 @@ export default function CharacterList({party}) {
           <View style={styles.centeredView}>
             <TouchableWithoutFeedback>
               <View style={styles.modalView}>
-                <AppText style={styles.modalText}>Enter character name:</AppText>
-                <AppTextInput autoFocus style={styles.textInput} placeholder="Name" onChangeText={setName} />
+                <AppText style={styles.modalText}>{t('enterRoleName') + ':'}</AppText>
+                <AppTextInput autoFocus style={styles.textInput} placeholder={t('name')} onChangeText={setName} />
                 <View style={styles.buttonsContainer}>
                   <Pressable style={[styles.button, styles.buttonOpen]} onPress={() => setModalVisible(!modalVisible)}>
-                    <AppText style={styles.textStyle}>Cancel</AppText>
+                    <AppText style={styles.textStyle}>{t('cancel')}</AppText>
                   </Pressable>
                   <Pressable style={[styles.button, styles.buttonClose]} onPress={handleAdd}>
-                    <AppText style={styles.textStyle}>Add</AppText>
+                    <AppText style={styles.textStyle}>{t('add')}</AppText>
                   </Pressable>
                 </View>
               </View>

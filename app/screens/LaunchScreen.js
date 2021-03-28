@@ -21,11 +21,11 @@ export default function LaunchScreen({createNavigate}) {
           <AppText style={styles.text}> {t('newGame')}</AppText>
         </Pressable>
       </View>
-      <View style={styles.buttonContainer}>
+      {/*       <View style={styles.buttonContainer}>
         <Pressable style={styles.button} android_ripple={{color: colors.secondary}}>
           <AppText style={styles.text}>{t('howToPlay')}</AppText>
         </Pressable>
-      </View>
+      </View> */}
     </Screen>
   );
 }

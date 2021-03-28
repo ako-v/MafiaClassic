@@ -20,7 +20,7 @@ export default function AppPicker({icon, list, onSelect, selected, title}) {
   return (
     <>
       <Pressable style={styles.container} onPress={toggleModal}>
-        {icon && <Icon name={icon} size={35} color={colors.medium} style={styles.icon} />}
+        {icon && <Icon name={icon} size={30} color={colors.medium} style={styles.icon} />}
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.category}>{selected}</AppText>
         <Icon name="chevron-down" size={30} color={colors.medium} style={styles.icon} />
@@ -69,7 +69,8 @@ const styles = StyleSheet.create({
     fontFamily: 'RobotoSlab-SemiBold',
   },
   icon: {
-    marginRight: 5,
+    marginRight: 2,
+    padding: 5,
   },
   title: {
     fontSize: 20,

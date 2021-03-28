@@ -12,7 +12,7 @@ export default function HeaderMenuItem({text, onPress}) {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 5,
+    marginVertical: 7,
   },
   text: {
     fontFamily: 'RobotoSlab-Regular',

@@ -2,6 +2,7 @@ import 'react-native-gesture-handler';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {I18nManager} from 'react-native';
+import RNRestart from 'react-native-restart';
 import RNBootSplash from 'react-native-bootsplash';
 //Context
 import StateContext from './app/StateContext';
@@ -12,7 +13,6 @@ import cache from './app/utils/cache';
 import BaseNavigation from './app/navigation/BaseNavigation';
 import useRoleManager from './app/utils/useRoleManager';
 import './app/services/i18n';
-import RNRestart from 'react-native-restart';
 
 export default function App(props) {
   const {i18n, ready} = useTranslation();

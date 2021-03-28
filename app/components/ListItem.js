@@ -11,7 +11,7 @@ function ListItem({image, icon, title, style, subTitle, onPress, renderRightActi
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.medium} onPress={onPress}>
         <View style={[styles.container, style]}>
-          {icon && <Icon name={icon} size={35} color={colors.primary} />}
+          {icon && <Icon name={icon} size={30} color={colors.primary} />}
           {image && <Image source={image} style={styles.image} />}
           <View style={styles.textContainer}>
             <AppText style={styles.title}>{title}</AppText>

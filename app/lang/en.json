@@ -5,7 +5,12 @@
     "next": "Next",
     "settings": "Settings",
     "reset": "Reset",
-    "language": "Language"
+    "language": "Language",
+    "enterRoleName": "Enter role name",
+    "unremovableRole": "This character is not removable",
+    "cancel": "Cancel",
+    "add": "Add",
+    "name": "Name"
   },
   "deal": {
     "tapToView": "Please tap and hold to view your role",
