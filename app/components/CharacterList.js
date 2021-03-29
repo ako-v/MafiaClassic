@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {View, StyleSheet, FlatList, Modal, Pressable, ToastAndroid, TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useTranslation} from 'react-i18next';
@@ -11,7 +11,6 @@ import Separator from './Separator';
 import StateContext from '../StateContext';
 import DispatchContext from '../DispatchContext';
 import getRoleArray from '../utils/getRoleArray';
-import {useEffect} from 'react/cjs/react.development';
 
 export default function CharacterList({party}) {
   const appState = useContext(StateContext);
@@ -24,8 +23,8 @@ export default function CharacterList({party}) {
 
   //make sure that roles initialized correctly
   useEffect(() => {
-    setRoles(getRoleArray(appState.roles, party)); //Array of this specific party. probably should be inside use effect.
-  }, [appState.roles, party]);
+    setRoles(getRoleArray(appState.roles, party)); //Array of roles of this specific 'party'. probably should be inside use effect.
+  }, [appState.roles]);
 
   //handle addition of new characters
   function handleAdd() {

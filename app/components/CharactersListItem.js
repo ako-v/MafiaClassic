@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import {useTranslation} from 'react-i18next';
 
 import colors from '../config/colors';
 import AppText from './AppText';
@@ -9,30 +10,16 @@ import NumberInput from './NumberInput';
 import Icon from './CustomIcons';
 import RightActionDelete from './RightActionDelete';
 import capitalize from '../utils/capitalize';
-import {useTranslation} from 'react-i18next';
 
 export default function CharactersListItem({item, onChange, onDelete}) {
   const {t} = useTranslation('roles');
   return (
-    <Swipeable
-      renderRightActions={() => (
-        <RightActionDelete onPress={() => onDelete(item)} />
-      )}>
+    <Swipeable renderRightActions={() => <RightActionDelete onPress={() => onDelete(item)} />}>
       <View style={styles.container}>
-        {item.icon && (
-          <Icon
-            name={item.icon}
-            size={35}
-            color={colors.dark}
-            style={styles.icon}
-          />
-        )}
+        {item.icon && <Icon name={item.icon} size={35} color={colors.dark} style={styles.icon} />}
         <AppText style={styles.name}>{capitalize(t(item.name))}</AppText>
         {item.quantity != undefined ? (
-          <NumberInput
-            quantity={item.quantity}
-            onquantityChange={newQuantity => onChange(item, newQuantity)}
-          />
+          <NumberInput value={item.quantity} onChange={num => onChange(item, num)} />
         ) : (
           <CheckBox
             onValueChange={() => onChange(item)}
@@ -65,5 +52,15 @@ const styles = StyleSheet.create({
   name: {
     flex: 1,
     fontFamily: 'RobotoSlab-Regular',
+  },
+  spinner: {
+    marginRight: 30,
+    width: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  inputStyle: {
+    height: 30,
+    paddingVertical: 0,
   },
 });
