@@ -19,7 +19,7 @@ export default function shuffle(characters) {
 
     return array;
   } catch (error) {
-    console.log('Shuffle Error: ', error);
+    //console.log('Shuffle Error: ', error);
     return null;
   }
 }

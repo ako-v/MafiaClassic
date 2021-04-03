@@ -10,7 +10,7 @@ const translationLoader = {
     try {
       resource = config.supportedLocales[language].translationFileLoader()[namespace];
     } catch (_error) {
-      console.log(_error);
+      //console.log(_error);
       error = _error;
     }
 

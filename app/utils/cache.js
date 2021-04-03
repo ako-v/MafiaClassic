@@ -6,7 +6,7 @@ const store = async (key, value) => {
   try {
     await AsyncStorage.setItem(prefix + key, JSON.stringify(value));
   } catch (error) {
-    console.log('Storing Roles error:', error);
+    //console.log('Storing Roles error:', error);
   }
 };
 
@@ -16,7 +16,7 @@ const get = async key => {
     if (!value) return null;
     return JSON.parse(value);
   } catch (error) {
-    console.log('Get Stored Roles Error: ', error);
+    //console.log('Get Stored Roles Error: ', error);
   }
 };
 

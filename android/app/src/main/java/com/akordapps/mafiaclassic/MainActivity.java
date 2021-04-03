@@ -1,4 +1,4 @@
-package com.akovium.mafiaclassic;
+package com.akordapps.mafiaclassic;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;
