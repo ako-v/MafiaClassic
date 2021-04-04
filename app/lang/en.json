@@ -7,7 +7,7 @@
     "reset": "Reset",
     "language": "Language",
     "enterRoleName": "Enter role name",
-    "unremovableRole": "This character is not removable",
+    "unremovableRole": "This role is not removable",
     "cancel": "Cancel",
     "add": "Add",
     "name": "Name"
@@ -21,7 +21,7 @@
     "tapToViewAgain": "Tap to view your role again\r\nTap next to go to the next player",
     "done": "Done",
     "of": "of",
-    "characters": "characters"
+    "characters": "participants"
   },
   "title": {
     "Home": "Mafia Classic",

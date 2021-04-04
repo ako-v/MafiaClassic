@@ -11,11 +11,7 @@ export default function HeaderNext({onPress}) {
   return (
     <Pressable style={styles.container} onPress={onPress}>
       <AppText style={styles.text}>{t('next')}</AppText>
-      <Icon
-        name={I18nManager.isRTL ? 'chevron-left' : 'chevron-right'}
-        size={35}
-        color={colors.dark}
-      />
+      <Icon name={I18nManager.isRTL ? 'chevron-left' : 'chevron-right'} size={35} color={colors.black} />
     </Pressable>
   );
 }
@@ -31,5 +27,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 19,
     fontFamily: 'RobotoSlab-SemiBold',
+    color: colors.black,
   },
 });

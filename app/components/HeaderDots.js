@@ -41,7 +41,7 @@ export default function HeaderDots() {
   return (
     <>
       <Pressable style={styles.container} onPress={() => setModalVisible(true)}>
-        <Icon name="dots-vertical" size={30} color={colors.dark} />
+        <Icon name="dots-vertical" size={30} color={colors.black} />
       </Pressable>
 
       <Modal visible={modalVisible} animationType="fade" transparent={true}>

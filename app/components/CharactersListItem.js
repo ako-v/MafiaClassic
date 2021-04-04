@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, I18nManager} from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {useTranslation} from 'react-i18next';
@@ -14,7 +14,9 @@ import capitalize from '../utils/capitalize';
 export default function CharactersListItem({item, onChange, onDelete}) {
   const {t} = useTranslation('roles');
   return (
-    <Swipeable renderRightActions={() => <RightActionDelete onPress={() => onDelete(item)} />}>
+    <Swipeable
+      renderRightActions={I18nManager.isRTL ? () => {} : () => <RightActionDelete onPress={() => onDelete(item)} />}
+      renderLeftActions={I18nManager.isRTL ? () => <RightActionDelete onPress={() => onDelete(item)} /> : () => {}}>
       <View style={styles.container}>
         {item.icon && <Icon name={item.icon} size={35} color={colors.dark} style={styles.icon} />}
         <AppText style={styles.name}>{capitalize(t(item.name))}</AppText>

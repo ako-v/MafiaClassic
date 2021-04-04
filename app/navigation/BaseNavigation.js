@@ -24,6 +24,7 @@ export default function BaseNavigation() {
     headerTitleStyle: {
       fontFamily: 'RobotoSlab-SemiBold', //change font weight and style
     },
+    headerTintColor: colors.black,
     cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS, //slide transition effect
   };
 
