@@ -15,11 +15,11 @@ Builds apk that you can install on your phone.
 ## Screenshots:
 
 <div>
-<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/01%20Select.png" width="195" /></span>
-<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/02%20Customize.png" width="195" /></span>
-<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/03%20Customize.png" width="195"/></span>
-<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/04%20StartPLaying.png" width="195" /></span>
-<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/05%20Support.png" width="195" /></span>
+<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/01%20Select.png" width="220" /></span>
+<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/02%20Customize.png" width="220" /></span>
+<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/03%20Customize.png" width="220"/></span>
+<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/04%20StartPLaying.png" width="220" /></span>
+<span><img src="https://github.com/ako-v/MafiaClassic/blob/master/images/05%20Support.png" width="220" /></span>
 </div>
 
 ```
