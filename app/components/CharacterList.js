@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 5,
     borderRadius: 5,
+    paddingVertical: 4,
   },
   backDrop: {
     flex: 1,
@@ -151,7 +152,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 5,
-    padding: 10,
+    padding: 12,
     elevation: 2,
     marginVertical: 5,
     width: '45%',
@@ -176,5 +177,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     margin: 5,
     padding: 7,
+    paddingVertical: 10,
   },
 });

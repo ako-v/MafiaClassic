@@ -56,6 +56,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.secondary,
+    paddingVertical: 8,
   },
   container: {
     width: '100%',
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
   },
   list: {
     backgroundColor: colors.light,
-    paddingVertical: 10,
+    paddingVertical: 15,
     fontFamily: 'RobotoSlab-Medium',
     fontSize: 20,
   },

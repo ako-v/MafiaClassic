@@ -106,7 +106,7 @@ export default function DealScreen() {
 const styles = StyleSheet.create({
   button: {
     borderRadius: 5,
-    padding: 10,
+    padding: 12,
     elevation: 2,
     marginVertical: 5,
     width: '40%',
